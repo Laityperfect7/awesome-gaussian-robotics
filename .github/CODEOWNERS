@@ -1,0 +1,12 @@
+# Default review owner
+* @Laityperfect7
+
+# Evidence-bearing data and generated artifacts
+/catalog/ @Laityperfect7
+/CATALOG.md @Laityperfect7
+/docs/ @Laityperfect7
+
+# Tooling, policy, and automation
+/src/ @Laityperfect7
+/tests/ @Laityperfect7
+/.github/ @Laityperfect7

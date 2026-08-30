@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+*.svg text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+CATALOG.md linguist-generated=true
+docs/catalog.csv linguist-generated=true
+docs/catalog.json linguist-generated=true
+docs/index.html linguist-generated=true
+docs/stats.json linguist-generated=true

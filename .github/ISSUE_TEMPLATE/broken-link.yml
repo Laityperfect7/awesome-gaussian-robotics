@@ -1,0 +1,71 @@
+name: Report a broken link
+description: Replace or remove a catalog URL that no longer reaches the intended resource.
+title: "[Broken link]: "
+labels:
+  - catalog
+  - broken-link
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Record name or ID
+      placeholder: splatam
+    validations:
+      required: true
+  - type: input
+    id: broken_url
+    attributes:
+      label: Broken URL
+      placeholder: https://...
+    validations:
+      required: true
+  - type: dropdown
+    id: observed
+    attributes:
+      label: What happened?
+      options:
+        - 404 or 410 response
+        - Domain or DNS failure
+        - Redirects to unrelated content
+        - Access is now restricted
+        - Serves suspicious or malicious content
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: checked_date
+    attributes:
+      label: Date checked
+      description: Use YYYY-MM-DD.
+      placeholder: "2026-08-30"
+    validations:
+      required: true
+  - type: input
+    id: replacement
+    attributes:
+      label: Verified replacement URL
+      description: Prefer an official canonical source. Leave blank if none exists.
+      placeholder: https://...
+  - type: input
+    id: archive
+    attributes:
+      label: Archived snapshot
+      description: Optional. Add a reputable web archive URL if it helps preserve provenance.
+      placeholder: https://web.archive.org/...
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Include a response code or concise observation. Do not paste sensitive logs.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I verified that the URL appears in this catalog and names the intended resource.
+          required: true
+        - label: I removed tokens, cookies, personal data, and private URLs from this report.
+          required: true
+  - type: markdown
+    attributes:
+      value: If the URL now serves malware or captures credentials, stop visiting it and follow SECURITY.md instead of posting technical details here.

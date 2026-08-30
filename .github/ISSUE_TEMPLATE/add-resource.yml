@@ -1,0 +1,109 @@
+name: Add a resource
+description: Propose a verified Gaussian Splatting resource with a direct robotics use.
+title: "[Resource]: "
+labels:
+  - catalog
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for improving the atlas. Search existing records first and use primary sources. A public repository alone does not establish paper reproducibility.
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      description: Use the official paper, project, dataset, or tool name.
+      placeholder: SplaTAM
+    validations:
+      required: true
+  - type: input
+    id: primary_url
+    attributes:
+      label: Primary source
+      description: Link the official paper, publisher record, or author-maintained project page.
+      placeholder: https://arxiv.org/abs/...
+    validations:
+      required: true
+  - type: textarea
+    id: robotics_use
+    attributes:
+      label: Direct robotics use
+      description: State the robot task, expected input, and usable output. Do not paste an abstract.
+      placeholder: The method consumes ... and produces ... for ...
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Best-fit category
+      options:
+        - mapping-reconstruction
+        - slam-localization
+        - semantic-perception
+        - navigation-planning
+        - manipulation-interaction
+        - robot-learning-vla
+        - simulation-digital-twins
+        - dynamic-scenes
+        - deployment-tooling
+    validations:
+      required: true
+  - type: input
+    id: code_url
+    attributes:
+      label: Official code URL
+      description: Leave blank when no official public implementation exists.
+      placeholder: https://github.com/owner/repository
+  - type: dropdown
+    id: code_status
+    attributes:
+      label: Code status
+      options:
+        - released
+        - partial
+        - archived
+        - paper-only
+        - unavailable
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility evidence
+      description: List documented sensors, pose assumptions, frameworks, robot platforms, or interfaces and link the exact supporting sources.
+      placeholder: |
+        - RGB-D input: https://...
+        - PyTorch implementation: https://...
+    validations:
+      required: true
+  - type: input
+    id: identifiers
+    attributes:
+      label: DOI or arXiv ID
+      description: Provide an identifier when the resource has one.
+      placeholder: 10.xxxx/xxxxx or 2401.01234
+  - type: input
+    id: license
+    attributes:
+      label: Code or data license
+      description: Give the SPDX identifier or write unknown when the official source declares none.
+      placeholder: MIT
+  - type: textarea
+    id: affiliation
+    attributes:
+      label: Affiliation disclosure
+      description: State whether you are connected to the resource. Write none if you are not.
+      placeholder: I am an author / maintainer / user / not affiliated.
+    validations:
+      required: true
+  - type: checkboxes
+    id: due_diligence
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched the catalog and open issues for duplicates.
+          required: true
+        - label: The links above are public primary sources and resolved when I checked them.
+          required: true
+        - label: I have not included copied abstracts, secrets, private URLs, or tracking links.
+          required: true

@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Laityperfect7/awesome-gaussian-robotics/raw/main/schema/resource.schema.json",
+  "title": "Gaussian Robotics Atlas resource",
+  "description": "One evidence-backed Gaussian Splatting resource for robotics.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "kind",
+    "category",
+    "summary",
+    "year",
+    "venue",
+    "paper_url",
+    "project_url",
+    "code_url",
+    "code_status",
+    "license",
+    "inputs",
+    "pose_requirement",
+    "frameworks",
+    "capabilities",
+    "tags",
+    "verified_date",
+    "sources"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Stable, lowercase catalog identifier."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kind": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A value declared by taxonomy.json#/kinds."
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A key declared by taxonomy.json#/categories."
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 2023
+    },
+    "venue": {
+      "type": "string",
+      "minLength": 1
+    },
+    "paper_url": {
+      "$ref": "#/$defs/nullableHttpsUrl"
+    },
+    "project_url": {
+      "$ref": "#/$defs/nullableHttpsUrl"
+    },
+    "code_url": {
+      "$ref": "#/$defs/nullableHttpsUrl"
+    },
+    "code_status": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A value declared by taxonomy.json#/code_statuses."
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1,
+      "description": "SPDX identifier when known, otherwise the taxonomy's unknown marker."
+    },
+    "inputs": {
+      "$ref": "#/$defs/uniqueStrings"
+    },
+    "pose_requirement": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A value declared by taxonomy.json#/pose_requirements."
+    },
+    "frameworks": {
+      "$ref": "#/$defs/uniqueStrings"
+    },
+    "capabilities": {
+      "$ref": "#/$defs/nonEmptyUniqueStrings"
+    },
+    "tags": {
+      "$ref": "#/$defs/uniqueStrings"
+    },
+    "verified_date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/httpsUrl"
+      }
+    },
+    "doi": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "arxiv": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "anyOf": [
+    {
+      "required": ["paper_url"],
+      "properties": {
+        "paper_url": {
+          "$ref": "#/$defs/httpsUrl"
+        }
+      }
+    },
+    {
+      "required": ["project_url"],
+      "properties": {
+        "project_url": {
+          "$ref": "#/$defs/httpsUrl"
+        }
+      }
+    },
+    {
+      "required": ["code_url"],
+      "properties": {
+        "code_url": {
+          "$ref": "#/$defs/httpsUrl"
+        }
+      }
+    }
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "code_status": {
+            "enum": ["released", "partial", "archived"]
+          }
+        },
+        "required": ["code_status"]
+      },
+      "then": {
+        "properties": {
+          "code_url": {
+            "$ref": "#/$defs/httpsUrl"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "httpsUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://[^\\s]+$"
+    },
+    "nullableHttpsUrl": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "uniqueStrings": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "nonEmptyUniqueStrings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}
