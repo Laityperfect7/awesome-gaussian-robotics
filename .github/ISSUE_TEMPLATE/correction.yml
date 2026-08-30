@@ -1,0 +1,69 @@
+name: Correct a record
+description: Submit a sourced metadata correction or clarify an uncertain catalog claim.
+title: "[Correction]: "
+labels:
+  - catalog
+  - correction
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Record name or ID
+      description: Link the catalog entry if possible.
+      placeholder: splatam
+    validations:
+      required: true
+  - type: dropdown
+    id: correction_type
+    attributes:
+      label: Correction type
+      options:
+        - Identity or publication metadata
+        - Category or capability
+        - Input or pose requirement
+        - Framework or platform
+        - Code status or license
+        - Summary wording
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current catalog value
+      description: Quote only the field or sentence that needs correction.
+    validations:
+      required: true
+  - type: textarea
+    id: corrected
+    attributes:
+      label: Proposed value
+      description: Give the precise replacement or explain what should be removed.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Primary-source evidence
+      description: Link the paper, project documentation, or official repository lines that support the correction.
+      placeholder: |
+        https://...
+        The Methods section states ...
+    validations:
+      required: true
+  - type: textarea
+    id: affiliation
+    attributes:
+      label: Affiliation disclosure
+      description: State your connection to the resource, or write none.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I checked the primary source and the correction refers to the same resource.
+          required: true
+        - label: I have removed credentials, private URLs, personal data, and unrelated logs.
+          required: true

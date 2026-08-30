@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: >-
+  If you use the catalog in research, cite this repository and record the
+  catalog version or commit you consulted.
+title: Gaussian Robotics Atlas
+type: dataset
+authors:
+  - name: Gaussian Robotics Atlas contributors
+abstract: >-
+  A reviewed, machine-readable compatibility catalog of Gaussian Splatting
+  resources for robotics, including task, input, framework, code-availability,
+  and provenance metadata.
+repository-code: https://github.com/Laityperfect7/awesome-gaussian-robotics
+url: https://github.com/Laityperfect7/awesome-gaussian-robotics
+version: 0.1.0
+license: CC0-1.0
+keywords:
+  - Gaussian Splatting
+  - robotics
+  - embodied AI
+  - SLAM
+  - manipulation
+  - navigation
+  - dataset

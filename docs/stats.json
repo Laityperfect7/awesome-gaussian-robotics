@@ -1,0 +1,53 @@
+{
+  "categories": {
+    "datasets-benchmarks": 4,
+    "deployment-tooling": 6,
+    "dynamic-scenes": 5,
+    "manipulation-interaction": 6,
+    "mapping-reconstruction": 5,
+    "navigation-planning": 5,
+    "robot-learning-vla": 7,
+    "semantic-perception": 8,
+    "simulation-digital-twins": 5,
+    "slam-localization": 10
+  },
+  "code_statuses": {
+    "archived": 1,
+    "paper-only": 3,
+    "partial": 10,
+    "released": 44,
+    "unavailable": 3
+  },
+  "featured": 12,
+  "inputs": {
+    "depth": 9,
+    "imu": 3,
+    "language": 17,
+    "lidar": 3,
+    "monocular-rgb": 9,
+    "multi-view-rgb": 34,
+    "point-cloud": 13,
+    "rgb-d": 19,
+    "robot-state": 19,
+    "simulation-state": 10,
+    "stereo-rgb": 5
+  },
+  "kinds": {
+    "benchmark": 1,
+    "dataset": 3,
+    "library": 4,
+    "method": 16,
+    "simulator": 4,
+    "system": 31,
+    "tool": 2
+  },
+  "last_verified": "2026-08-30",
+  "resources": 61,
+  "with_code": 54,
+  "years": {
+    "2023": 5,
+    "2024": 29,
+    "2025": 24,
+    "2026": 3
+  }
+}
